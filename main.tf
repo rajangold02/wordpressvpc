@@ -22,7 +22,7 @@ module "ec2" {
 
 module "elb" {
         source = "./module/elb"
-		instance-id = "${module.ec2.server_id}"
+		server_id = "${module.ec2.server_id}"
 		vcp_id = "${module.vpc.vcp_id}"
 		subnet_id = "${module.vpc.subnet_id}"
 }
