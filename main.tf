@@ -10,20 +10,20 @@ terraform {
 }
 module "rds" {
         source = "./module/rds"
-		vcp_id = "${module.vpc.vcp_id}"
+		vpc_id = "${module.vpc.vcp_id}"
 		subnet_id = "${module.vpc.subnet_id}"
 }
 
 module "ec2" {
         source = "./module/ec2"
-		vcp_id = "${module.vpc.vcp_id}"
+		vpc_id = "${module.vpc.vcp_id}"
 		subnet_id = "${module.vpc.subnet_id}"
 }
 
 module "elb" {
         source = "./module/elb"
 		server_id = "${module.ec2.server_id}"
-		vcp_id = "${module.vpc.vcp_id}"
+		vpc_id = "${module.vpc.vcp_id}"
 		subnet_id = "${module.vpc.subnet_id}"
 }
 
