@@ -2,10 +2,9 @@ resource "aws_elb" "example" {
   name     = "${var.name}"
   subnets = ["${var.subnet_id1}"]
   security_groups = ["${aws_security_group.elb.id}"]
+  availability_zones = ["us-east-1a", "us-east-1b"]
 
-
-
-  listener {
+    listener {
     instance_port     = 80
     instance_protocol = "http"
     lb_port           = 80
@@ -16,7 +15,7 @@ resource "aws_elb" "example" {
     healthy_threshold   = 2
     unhealthy_threshold = 2
     timeout             = 3
-    target              = "HTTP:80/"
+    target              = "HTTP:80/index.php"
     interval            = 30
   }
 
