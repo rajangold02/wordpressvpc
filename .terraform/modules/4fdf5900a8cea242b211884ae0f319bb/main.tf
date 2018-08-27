@@ -37,7 +37,7 @@ resource "aws_security_group" "rds" {
   }
 resource "aws_db_subnet_group" "default" {
   name       = "main"
-  subnet_ids = ["${var.subnet_id1}", "${var.subnet_id1}"]
+  subnet_ids = ["${var.subnet_id1}", "${var.subnet_id2}"]
 
   tags {
     Name = "My DB subnet group"
