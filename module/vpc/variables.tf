@@ -15,11 +15,9 @@ variable "vpcCIDRblock" {
 }
 variable "subnetCIDRblock1" {
         default = "30.0.1.0/24"
-		zone = "us-east-1a"
 }
 variable "subnetCIDRblock2" {
         default = "30.0.2.0/24"
-		zone = "us-east-1b"
 }
 variable "destinationCIDRblock" {
         default = "0.0.0.0/0"
