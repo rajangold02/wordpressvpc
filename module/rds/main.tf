@@ -2,7 +2,7 @@ resource "aws_db_instance" "default" {
   allocated_storage    = 10
   storage_type         = "gp2"
   engine               = "mysql"
-  vpc_id      = "${var.vpc_id}"
+  subnets = ["${var.subnet_id}"]
   engine_version       = "5.7"
   instance_class       = "${var.instance_class}"
   vpc_security_group_ids      = ["${aws_security_group.rds.id}"]
