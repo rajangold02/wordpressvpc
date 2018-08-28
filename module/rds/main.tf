@@ -1,16 +1,16 @@
 resource "aws_db_instance" "default" {
-  allocated_storage    = 10
-  storage_type         = "gp2"
-  engine               = "mysql"
-  db_subnet_group_name = "${aws_db_subnet_group.default.name}"
-  engine_version       = "5.7"
-  instance_class       = "${var.instance_class}"
-  vpc_security_group_ids      = ["${aws_security_group.rds.id}"]
-  name                 = "mydb"
-  username             = "ebizon"
-  password             = "Ebizon12345"
-  parameter_group_name = "default.mysql5.7"
-  skip_final_snapshot  = "true"
+  allocated_storage      = 10
+  storage_type           = "gp2"
+  engine                 = "mysql"
+  db_subnet_group_name   = "${aws_db_subnet_group.default.name}"
+  engine_version         = "5.7"
+  instance_class         = "${var.instance_class}"
+  vpc_security_group_ids = ["${aws_security_group.rds.id}"]
+  name                   = "mydb"
+  username               = "ebizon"
+  password               = "Ebizon12345"
+  parameter_group_name   = "default.mysql5.7"
+  skip_final_snapshot    = "true"
 }
 
 resource "aws_security_group" "rds" {
@@ -31,10 +31,12 @@ resource "aws_security_group" "rds" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
   tags {
-    Name         = "allow_rds"
+    Name = "allow_rds"
   }
-  }
+}
+
 resource "aws_db_subnet_group" "default" {
   name       = "main"
   subnet_ids = ["${var.subnet_id1}", "${var.subnet_id2}"]
