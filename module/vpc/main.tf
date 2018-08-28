@@ -56,11 +56,11 @@ resource "aws_route" "my_vpc_internet_access" {
 }
 
 resource "aws_route_table_association" "my_vpc_association1" {
-  subnet_id      = "${aws_subnet.my_vpc_Subnet1.id}"
+  subnet_id      = "${aws_subnet.my_vpc_subnet1.id}"
   route_table_id = "${aws_route_table.my_vpc_route_table.id}"
 }
 
 resource "aws_route_table_association" "my_vpc_association2" {
-  subnet_id      = "${aws_subnet.my_vpc_Subnet2.id}"
+  subnet_id      = "${aws_subnet.my_vpc_subnet2.id}"
   route_table_id = "${aws_route_table.my_vpc_route_table.id}"
 }
