@@ -2,7 +2,6 @@ resource "aws_elb" "example" {
   name               = "${var.name}"
   subnets            = ["${var.subnet_id1}"]
   security_groups    = ["${aws_security_group.elb.id}"]
-  availability_zones = ["us-east-1a", "us-east-1b"]
 
   listener {
     instance_port     = 80
