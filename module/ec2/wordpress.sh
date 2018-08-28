@@ -8,4 +8,6 @@ sudo wget http://wordpress.org/latest.tar.gz
 sudo tar -xvf latest.tar.gz
 cd wordpress
 sudo cp -r * .. && cd ..
+touch health.txt
+echo "I'm Health" >health.txt
 sudo service httpd restart
